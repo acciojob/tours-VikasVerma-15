@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
 function Tour({ id, name, info, image, price, removeTour }) {
-  const [readMore, setReadMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
-  const words = info.split(" ");
-  const isLongText = words.length > 200;
-  const shortText = words.slice(0, 200).join(" ");
+  const truncatedText = info.slice(0, 200) + "...";
 
   return (
     <div>
@@ -14,16 +12,13 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <h4>{price}</h4>
 
       <p id={`tour-item-para-${id}`}>
-        {readMore || !isLongText ? info : shortText}
-
-        {isLongText && (
-          <button
-            id={readMore ? `see-less-${id}` : `see-more-${id}`}
-            onClick={() => setReadMore(!readMore)}
-          >
-            {readMore ? "See less" : "See more"}
-          </button>
-        )}
+        {showMore ? info : truncatedText}
+        <button
+          id={showMore ? `see-less-${id}` : `see-more-${id}`}
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? "See less" : "See more"}
+        </button>
       </p>
 
       <button
