@@ -21,7 +21,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
             id={readMore ? `see-less-${id}` : `see-more-${id}`}
             onClick={() => setReadMore(!readMore)}
           >
-            {readMore ? "Show Less" : "Read More"}
+            {readMore ? "See less" : "See more"}
           </button>
         )}
       </p>
@@ -37,6 +37,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
 
 
