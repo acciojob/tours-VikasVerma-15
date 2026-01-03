@@ -29,26 +29,34 @@ function App() {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <div id="main">
+        <Loading />
+      </div>
+    );
   }
 
   if (tours.length === 0) {
     return (
-      <main>
-        <div className="title">
-          <h2>No tours left</h2>
-          <button className="btn" onClick={fetchTours}>
-            Refresh
-          </button>
-        </div>
-      </main>
+      <div id="main">
+        <main>
+          <div className="title">
+            <h2>No tours left</h2>
+            <button className="btn" onClick={fetchTours}>
+              Refresh
+            </button>
+          </div>
+        </main>
+      </div>
     );
   }
 
   return (
-    <main>
-      <Tours tours={tours} removeTour={removeTour} />
-    </main>
+    <div id="main">
+      <main>
+        <Tours tours={tours} removeTour={removeTour} />
+      </main>
+    </div>
   );
 }
 
