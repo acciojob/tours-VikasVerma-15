@@ -12,15 +12,20 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <h2>{name}</h2>
       <img src={image} alt={name} />
       <h4>{price}</h4>
+
       <p id={`tour-item-para-${id}`}>
         {readMore || !isLongText ? info : shortText}
 
         {isLongText && (
-          <button onClick={() => setReadMore(!readMore)}>
-            {readMore ? " Show Less" : " Read More"}
+          <button
+            id={readMore ? `see-less-${id}` : `see-more-${id}`}
+            onClick={() => setReadMore(!readMore)}
+          >
+            {readMore ? "Show Less" : "Read More"}
           </button>
         )}
       </p>
+
       <button
         id={`delete-btn-${id}`}
         onClick={() => removeTour(id)}
@@ -32,5 +37,6 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
 
