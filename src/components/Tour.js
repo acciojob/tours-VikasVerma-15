@@ -3,8 +3,9 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [readMore, setReadMore] = useState(false);
 
-  const isLongText = info.length > 200;
-  const shortText = info.substring(0, 200);
+  const words = info.split(" ");
+  const isLongText = words.length > 200;
+  const shortText = words.slice(0, 200).join(" ");
 
   return (
     <div>
@@ -36,9 +37,3 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
-
-
-
-
-
-
