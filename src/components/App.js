@@ -1,18 +1,4 @@
-import data from "./data";
-import Tour from "./Tour";
-
-function App() {
-  return (
-    <div id="main">
-      {data.map((tour) => (
-        <Tour key={tour.id} {...tour} />
-      ))}
-    </div>
-  );
-}
-
-export default App;
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Tours from "./Tours";
 import Loading from "./Loading";
 
@@ -39,8 +25,7 @@ function App() {
   }, []);
 
   const removeTour = (id) => {
-    const newTours = tours.filter((tour) => tour.id !== id);
-    setTours(newTours);
+    setTours((prev) => prev.filter((tour) => tour.id !== id));
   };
 
   if (loading) {
