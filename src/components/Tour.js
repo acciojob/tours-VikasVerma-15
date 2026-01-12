@@ -3,8 +3,6 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
-  const shortText = info.substring(0, 200);
-
   return (
     <div>
       <h2>{name}</h2>
@@ -12,8 +10,9 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <h4>{price}</h4>
 
       <p id={`tour-item-para-${id}`}>
-        {showMore ? info : shortText}
+        {showMore ? info : info.substring(0, 200) + "..."}
 
+        {/* ✅ ALWAYS render button */}
         <button
           id={showMore ? `see-less-${id}` : `see-more-${id}`}
           onClick={() => setShowMore(!showMore)}
@@ -33,5 +32,3 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
-
-
