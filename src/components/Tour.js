@@ -11,12 +11,9 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <img src={image} alt={name} />
       <h4>{price}</h4>
 
-      {/* TEXT ONLY */}
       <p id={`tour-item-para-${id}`}>
         {showMore ? info : shortText}
       </p>
-
-      {/* BUTTON OUTSIDE PARAGRAPH */}
       <button
         id={showMore ? `see-less-${id}` : `see-more-${id}`}
         onClick={() => setShowMore(!showMore)}
@@ -35,3 +32,4 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
