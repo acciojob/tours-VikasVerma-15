@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
-
   const words = info.split(" ");
   const shortText = words.slice(0, 200).join(" ");
 
@@ -13,12 +12,14 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <h4>{price}</h4>
 
       <p id={`tour-item-para-${id}`}>
-        {showMore ? info : shortText}
+        {/* ONLY text is counted */}
+        <span>{showMore ? info : shortText}</span>
+
         <button
           id={showMore ? `see-less-${id}` : `see-more-${id}`}
           onClick={() => setShowMore(!showMore)}
         >
-          {showMore ? "See less" : "See more"}
+          {showMore ? "Show Less" : "See More"}
         </button>
       </p>
 
@@ -33,6 +34,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
 
 
