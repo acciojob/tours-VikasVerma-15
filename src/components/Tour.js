@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
-   let shortText = info.length > 250 ? info.slice(0, 250) : info;
+   let shortText = info.length > 244 ? info.slice(0, 244) : info;
 
   const lastSpaceIndex = shortText.lastIndexOf(" ");
   shortText = lastSpaceIndex > 0 ? shortText.slice(0, lastSpaceIndex) : shortText;
