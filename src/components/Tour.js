@@ -3,8 +3,7 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
-  const words = info.split(" ");
-  const shortText = words.slice(0, 200).join(" ");
+  const shortText = info.substring(0, 200);
 
   return (
     <div>
@@ -12,12 +11,11 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <img src={image} alt={name} />
       <h4>{price}</h4>
 
-      {/* ONLY description text inside <p> */}
+      {/* Cypress checks ONLY this text */}
       <p id={`tour-item-para-${id}`}>
         {showMore ? info : shortText}
       </p>
 
-      {/* Button OUTSIDE paragraph */}
       <button
         id={showMore ? `see-less-${id}` : `see-more-${id}`}
         onClick={() => setShowMore(!showMore)}
@@ -36,6 +34,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
 
 
