@@ -12,16 +12,18 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <img src={image} alt={name} />
       <h4>{price}</h4>
 
+      {/* ONLY description text inside <p> */}
       <p id={`tour-item-para-${id}`}>
-        <span>{showMore ? info : shortText}</span>
-
-        <button
-          id={showMore ? `see-less-${id}` : `see-more-${id}`}
-          onClick={() => setShowMore(!showMore)}
-        >
-          {showMore ? "See less" : "See more"}
-        </button>
+        {showMore ? info : shortText}
       </p>
+
+      {/* Button OUTSIDE paragraph */}
+      <button
+        id={showMore ? `see-less-${id}` : `see-more-${id}`}
+        onClick={() => setShowMore(!showMore)}
+      >
+        {showMore ? "See less" : "See more"}
+      </button>
 
       <button
         id={`delete-btn-${id}`}
@@ -34,6 +36,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
 
 
