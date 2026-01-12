@@ -3,8 +3,7 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
-  const words = info.split(" ");
-  const first200Words = words.slice(0, 200).join(" ");
+  const shortText = info.slice(0, 200); 
 
   return (
     <div>
@@ -13,10 +12,9 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <h4>{price}</h4>
 
       <p id={`tour-item-para-${id}`}>
-        {showMore ? info : first200Words + "..."}
+        {showMore ? info : shortText + "..."}
 
-        {/* ✅ Render button ONLY if words > 200 */}
-        {words.length > 200 && (
+        {info.length > 200 && (
           <button
             id={showMore ? `see-less-${id}` : `see-more-${id}`}
             onClick={() => setShowMore(!showMore)}
@@ -37,4 +35,5 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
