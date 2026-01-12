@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
-  const shortText = info.substring(0, 200);
+  const shortText = info.split(" ").slice(0, 200).join(" ");
 
   return (
     <div>
@@ -13,7 +13,6 @@ function Tour({ id, name, info, image, price, removeTour }) {
 
       <p id={`tour-item-para-${id}`}>
         {showMore ? info : shortText}
-
         <button
           id={showMore ? `see-less-${id}` : `see-more-${id}`}
           onClick={() => setShowMore(!showMore)}
@@ -22,10 +21,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
         </button>
       </p>
 
-      <button
-        id={`delete-btn-${id}`}
-        onClick={() => removeTour(id)}
-      >
+      <button id={`delete-btn-${id}`} onClick={() => removeTour(id)}>
         Not Interested
       </button>
     </div>
@@ -33,7 +29,6 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
-
 
 
 
