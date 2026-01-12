@@ -11,7 +11,6 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <img src={image} alt={name} />
       <h4>{price}</h4>
 
-      {/* Cypress reads ONLY this <p> */}
       <p id={`tour-item-para-${id}`}>
         {showMore ? info : shortText}
 
@@ -19,7 +18,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
           id={showMore ? `see-less-${id}` : `see-more-${id}`}
           onClick={() => setShowMore(!showMore)}
         >
-          {showMore ? "see less" : "see more"}
+          {showMore ? "See less" : "See more"}
         </button>
       </p>
 
@@ -34,6 +33,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
 
 
