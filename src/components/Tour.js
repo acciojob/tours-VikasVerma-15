@@ -4,14 +4,15 @@ function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
   const shortText = info.slice(0, 250);
-
+const lastSpaceIndex = shortText.lastIndexOf(" ");
+const displayText = shortText.slice(0, lastSpaceIndex);
   return (
     <div>
       <h2>{name}</h2>
       <img src={image} alt={name} />
       <h4>{price}</h4>
 <p id={`tour-item-para-${id}`}>
-  {showMore ? info : shortText}
+  {showMore ? info : displayText}
   <button
     id={showMore ? `see-less-${id}` : `see-more-${id}`}
     onClick={() => setShowMore(!showMore)}
