@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
-  const truncatedText = info.slice(0, 200) + "...";
+  const shortText = info.substring(0, 200);
 
   return (
     <div>
@@ -11,15 +11,18 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <img src={image} alt={name} />
       <h4>{price}</h4>
 
+      {/* TEXT ONLY */}
       <p id={`tour-item-para-${id}`}>
-        {showMore ? info : truncatedText}
-        <button
-          id={showMore ? `see-less-${id}` : `see-more-${id}`}
-          onClick={() => setShowMore(!showMore)}
-        >
-          {showMore ? "See less" : "See more"}
-        </button>
+        {showMore ? info : shortText}
       </p>
+
+      {/* BUTTON OUTSIDE PARAGRAPH */}
+      <button
+        id={showMore ? `see-less-${id}` : `see-more-${id}`}
+        onClick={() => setShowMore(!showMore)}
+      >
+        {showMore ? "See less" : "See more"}
+      </button>
 
       <button
         id={`delete-btn-${id}`}
