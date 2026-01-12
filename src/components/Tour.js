@@ -3,7 +3,8 @@ import React, { useState } from "react";
 function Tour({ id, name, info, image, price, removeTour }) {
   const [showMore, setShowMore] = useState(false);
 
-  const shortText = info.slice(0, 200);
+  const words = info.split(" ");
+  const shortText = words.slice(0, 200).join(" ");
 
   return (
     <div>
@@ -32,6 +33,7 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
 
 
