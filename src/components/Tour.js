@@ -13,13 +13,14 @@ function Tour({ id, name, info, image, price, removeTour }) {
 
       <p id={`tour-item-para-${id}`}>
         {showMore ? info : shortText}
+
+        <button
+          id={showMore ? `see-less-${id}` : `see-more-${id}`}
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? "See less" : "See more"}
+        </button>
       </p>
-      <button
-        id={showMore ? `see-less-${id}` : `see-more-${id}`}
-        onClick={() => setShowMore(!showMore)}
-      >
-        {showMore ? "See less" : "See more"}
-      </button>
 
       <button
         id={`delete-btn-${id}`}
@@ -32,4 +33,5 @@ function Tour({ id, name, info, image, price, removeTour }) {
 }
 
 export default Tour;
+
 
