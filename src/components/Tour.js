@@ -16,15 +16,15 @@ function Tour({ id, name, info, image, price, removeTour }) {
       <h4 className="tour-price">{price}</h4>
       <p id={`tour-item-para-${id}`} className="tour-info">
         {showMore ? info : shortText}
-        {shouldShowButton && (
-          <button
-            id={showMore ? `see-less-${id}` : `see-more-${id}`}
-            onClick={() => setShowMore(!showMore)}
-          >
-            {showMore ? "See less" : "See more"}
-          </button>
-        )}
       </p>
+      {shouldShowButton && (
+        <button
+          id={showMore ? `see-less-${id}` : `see-more-${id}`}
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? "See less" : "See more"}
+        </button>
+      )}
 
       <button className="delete-btn" id={`delete-btn-${id}`} onClick={() => removeTour(id)}>
         Not Interested
